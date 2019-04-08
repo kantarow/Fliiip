@@ -1,0 +1,80 @@
+$richmaroon:         #B8336A;
+$lightgrayshmagenta: #C490D1;
+$maximumbluepurple:  #ACACDE;
+$freshair:           #ABDAFC;
+$bubbles:            #E5FCFF;
+
+body {
+  font-family: 'Lato';
+  color: #404040;
+  background-color: $bubbles;
+}
+
+.headline {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+div.field {
+  margin: 10px 0;
+
+  input, textarea {
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+    border: solid 1px $freshair;
+  }
+
+  input {
+    height: 2.2em;
+  }
+}
+
+.container {
+  margin: 0  5.0%;
+  height: 100%;
+}
+
+#error_explanation {
+  background-color: lemonchiffon;
+  color: olive;
+  font-size: 1em;
+  padding: 10px;
+  border-radius: 5px;
+  h2 {
+    font-size: 1.2em;
+  }
+}
+
+#notice {
+  background-color: palegreen;
+  color: darkolivegreen;
+  font-size: 1em;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.btn {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  display: block;
+}
+
+.btn-normal {
+  background-color: $richmaroon;
+  color: white;
+  &:hover {
+    background-color: $richmaroon + 30;
+  }
+}
+
+.user-name {
+  font-size: 1.2em;
+}
+
+.user-id {
+  font-size: 1em;
+}
