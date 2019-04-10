@@ -11,8 +11,8 @@ class UsersController < ApplicationController
       flash[:success] = "User created"
       redirect_to @user
     else
-      flash[:error] = "Failed to create the user"
       render 'new'
+      flash[:danger] = "Failed to create the user"
     end
   end
 
@@ -23,12 +23,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = find_user.update_attributes(user_params)
-    if @user.save
+    if find_user.update_attributes(user_params)
       flash[:success] = "User updated"
-      redirect_to @user
+      redirect_to find_user
     else
-      flash[:error] = "Failed to update the user"
+      render 'edit'
+      flash[:danger] = "Failed to update the user"
     end
   end
 

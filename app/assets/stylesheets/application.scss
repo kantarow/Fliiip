@@ -4,10 +4,51 @@ $maximumbluepurple:  #ACACDE;
 $freshair:           #ABDAFC;
 $bubbles:            #E5FCFF;
 
+$flash-success: #CCEEAA;
+$flash-warn:    #FFEEAA;
+$flash-danger:  #FFAAAA;
+
+$font-color: #404040;
+
+$pc:  2048px;
+$tab: 680px;
+$sp:  480px;
+
+@mixin pc {
+  @media (max-width: $pc) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media (max-width: $tab) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media (max-width: $sp) {
+    @content;
+  }
+}
+
+@mixin btn ($bg-color, $font-color: white) {
+  background-color: $bg-color;
+  color: $font-color;
+  &:hover {
+    background-color: $bg-color + 30;
+  }
+}
+
+@mixin flash ($bg-color) {
+  background-color: $bg-color;
+  color:            $bg-color - 150;
+}
+
+
 body {
-  font-family: 'Lato';
-  color: #404040;
-  background-color: $bubbles;
+  font-family: 'Lato', 'Avenir';
+  color: $font-color;
 }
 
 .headline {
@@ -23,19 +64,29 @@ div.field {
     display: block;
     border-radius: 5px;
     border: solid 1px $freshair;
+    background-color: white;
+    text-align: justify;
+    font-size: 15px;
+    text-indent: 5px;
   }
 
   input {
-    height: 2.2em;
+    height: 30px;
+  }
+
+  label {
+    font-weight: bold;
   }
 }
 
 .container {
-  margin: 0  5.0%;
+  @include pc { margin: 0 25%; }
+  @include sp { margin: 0 10%; }
   height: 100%;
 }
 
 #error_explanation {
+  margin:    5px 0px;
   background-color: lemonchiffon;
   color: olive;
   font-size: 1em;
@@ -56,25 +107,37 @@ div.field {
 
 .btn {
   padding: 10px;
+  text-decoration: none;
   border-radius: 5px;
   font-size: 1em;
   font-weight: bold;
   border: none;
-  display: block;
+  display: inline-block;
+  -webkit-appearance: none;
+  transition: 0.5s;
 }
 
 .btn-normal {
-  background-color: $richmaroon;
-  color: white;
-  &:hover {
-    background-color: $richmaroon + 30;
-  }
+  @include btn ($lightgrayshmagenta);
 }
 
-.user-name {
-  font-size: 1.2em;
+.btn-submit {
+  @include btn ($richmaroon);
 }
 
 .user-id {
-  font-size: 1em;
+  font-size:  15px;
+  color: $font-color + 50;
 }
+
+.flash {
+  font-size: 20px;
+  padding:   15px 0px 13px 10px;
+  margin:    5%;
+  width:     90%;
+  height:    25px;
+  border-radius: 5px;
+}
+
+.flash-success { @include flash ($flash-success); }
+.flash-danger  { @include flash ($flash-danger); }
