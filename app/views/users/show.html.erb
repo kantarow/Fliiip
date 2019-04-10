@@ -1,0 +1,9 @@
+<h3>
+  <span class="user-name"><%= find_user.name %></span>
+  <span class="user-id"> (@<%= find_user.id_name %>)</span>
+</h3>
+<p>
+<%= sanitize(simple_format(find_user.bio)) %>
+</p>
+
+<%= link_to 'Edit', edit_user_path, class: "btn btn-normal" %>
