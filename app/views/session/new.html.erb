@@ -1,0 +1,15 @@
+<h3>Login</h3>
+
+<%= form_with url: login_url, local: true do |f| %>
+  <div class="field">
+    <%= f.label :email_or_id, "Email / UserID" %>
+    <%= f.text_field :email_or_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <%= f.submit "Login", class: "btn btn-submit" %>
+<% end %>
