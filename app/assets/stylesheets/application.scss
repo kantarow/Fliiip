@@ -8,7 +8,9 @@ $flash-success: #CCEEAA;
 $flash-warn:    #FFEEAA;
 $flash-danger:  #FFAAAA;
 
-$font-color: #404040;
+$font-color: #3f3f3f;
+$nav-border: #c9c9c9;
+$nav-bg:     #f3f3f3;
 
 $pc:  2048px;
 $tab: 680px;
@@ -45,8 +47,8 @@ $sp:  480px;
   color:            $bg-color - 150;
 }
 
-
 body {
+  margin: 0;
   font-family: 'Lato', 'Avenir';
   color: $font-color;
 }
@@ -141,3 +143,39 @@ div.field {
 
 .flash-success { @include flash ($flash-success); }
 .flash-danger  { @include flash ($flash-danger); }
+
+.nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: $nav-bg;
+  border-bottom: solid 1px $nav-border;
+
+  li.left {
+    float: left;
+  }
+
+  li.right {
+    float: right;
+  }
+
+  li {
+    a {
+      font-weight: bold;
+      font-size:   20px;
+      display: block;
+      color: $font-color;
+      text-align: center;
+      padding: 18px 22px;
+      text-decoration: none;
+      border-right: solid 1px $nav-border;
+      border-left:  solid 1px $nav-border;
+
+      &:hover {
+        background-color: white - 30;
+        transition: 0.5s;
+      }
+    }
+  }
+}
