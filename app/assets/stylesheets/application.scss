@@ -134,14 +134,15 @@ div.field {
 
 .flash {
   font-size: 20px;
-  padding:   15px 0px 13px 10px;
-  margin:    5%;
+  padding:   13px 0 13px 10px;
+  margin:    5px  5% 5px 5%;
   width:     90%;
   height:    25px;
   border-radius: 5px;
 }
 
 .flash-success { @include flash ($flash-success); }
+.flash-warn    { @include flash ($flash-warn); }
 .flash-danger  { @include flash ($flash-danger); }
 
 .nav-bar {
@@ -163,11 +164,11 @@ div.field {
   li {
     a {
       font-weight: bold;
-      font-size:   20px;
+      font-size:   16px;
       display: block;
       color: $font-color;
       text-align: center;
-      padding: 18px 22px;
+      padding: 14px 14px;
       text-decoration: none;
       border-right: solid 1px $nav-border;
       border-left:  solid 1px $nav-border;
