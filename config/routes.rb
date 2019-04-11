@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   post 'login', to: 'session#create'
   delete 'logout', to: 'session#destroy'
   resources :users
+  resources :vocabulary_cards, path: :cards
 end

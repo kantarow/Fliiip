@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_05_120627) do
+ActiveRecord::Schema.define(version: 2019_04_11_122637) do
 
   create_table "users", primary_key: "id_name", id: :string, force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.text "bio"
     t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vocabulary_cards", force: :cascade do |t|
+    t.string "ja"
+    t.string "en"
+    t.string "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

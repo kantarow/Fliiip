@@ -1,0 +1,8 @@
+<% cards.each do |card| %>
+  <%= link_to card do %>
+    <div class="word-headline">
+      <%= "#{card.en} #{card.ja}" %>
+    </div>
+  <% end %>
+  <hr>
+<% end %>
