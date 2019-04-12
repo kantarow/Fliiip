@@ -8,7 +8,7 @@ class User < ApplicationRecord
     provider = auth[:provider]
     uid = auth[:uid]
     name = auth[:info][:name]
-    image_url = auth[:info][:image]
+    image_url = auth[:info][:image].gsub('_normal.', ?.)
 
     User.find_by_uid(uid) || User.create(uid: uid, name: name, image_url: image_url)
   end

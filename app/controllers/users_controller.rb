@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = find_user
   end
 
   def update
@@ -29,6 +30,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:id_name, :name, :email, :bio, :password, :password_confirmation)
+      params.require(:user).permit(:name, :bio)
     end
 end
