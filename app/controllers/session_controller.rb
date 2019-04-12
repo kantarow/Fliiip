@@ -1,17 +1,17 @@
 class SessionController < ApplicationController
+
   def new
   end
 
   def create
-    user = User.find_by_email(params[:email_or_id]) ||
-           User.find_by_id_name(params[:email_or_id])
-    if user && user.authenticate(params[:password])
-      flash[:success] = "Login as @#{user.id_name}"
-      login(user)
-      redirect_to user
+    user = User.find_or_create_from_auth(request.env['omniauth.auth'])
+    if user.nil?
+      flash[:danger] = "Failed to authenticate"
+      redirect_to root_url
     else
-      flash[:warn] = "Failed to login"
-      render 'new'
+      flash[:success] = "User is authenticated"
+      redirect_to user_path user
+      login user
     end
   end
 

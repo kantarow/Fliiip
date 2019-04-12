@@ -109,6 +109,7 @@ div.field {
 
 .btn {
   padding: 10px;
+  margin:  3px;
   text-decoration: none;
   border-radius: 5px;
   font-size: 1em;
@@ -127,8 +128,14 @@ div.field {
   @include btn ($richmaroon);
 }
 
-.user-id {
-  font-size:  15px;
+.user-name {
+  margin-bottom: 3px;
+  font-size: 20px;
+  color: $font-color;
+}
+
+.user-uid {
+  font-size:  13px;
   color: $font-color + 50;
 }
 

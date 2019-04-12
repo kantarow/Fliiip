@@ -1,11 +1,16 @@
 class User < ApplicationRecord
-  has_secure_password
   has_many :vocabulary_cards
-  self.primary_key = :id_name
-  validates :id_name, presence:   true,
-                      uniqueness: true
+  self.primary_key = :uid
+  validates :uid,  presence: true,
+                   uniqueness: true
+  validates :name, presence:   true
 
-  validates :name,    presence:   true
+  def self.find_or_create_from_auth(auth)
+    provider = auth[:provider]
+    uid = auth[:uid]
+    name = auth[:info][:name]
+    image_url = auth[:info][:image].gsub('_normal.', ?.)
 
-  validates :email,   presence:   true
+    User.find_by_uid(uid) || User.create(uid: uid, name: name, image_url: image_url)
+  end
 end
