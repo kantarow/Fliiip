@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     
     def find_user
       return @user if defined? @user
-      @user = User.find_by_id_name(params[:id])
+      @user = User.find_by_uid(params[:id])
     end
 
     def user_params
