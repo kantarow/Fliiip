@@ -1,25 +1,11 @@
 class UsersController < ApplicationController
   helper_method :find_user
 
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      flash[:success] = "User created"
-      redirect_to @user
-    else
-      render 'new'
-      flash[:danger] = "Failed to create the user"
-    end
-  end
-
   def show
   end
 
   def edit
+    @user = find_user
   end
 
   def update
@@ -40,10 +26,10 @@ class UsersController < ApplicationController
     
     def find_user
       return @user if defined? @user
-      @user = User.find_by_id_name(params[:id])
+      @user = User.find_by_uid(params[:id])
     end
 
     def user_params
-      params.require(:user).permit(:id_name, :name, :email, :bio, :password, :password_confirmation)
+      params.require(:user).permit(:name, :bio)
     end
 end

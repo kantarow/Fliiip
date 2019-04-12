@@ -1,7 +1,6 @@
-<h3>
-  <span class="user-name"><%= find_user.name %></span>
-  <span class="user-id"> (@<%= find_user.id_name %>)</span>
-</h3>
+<img src="<%= find_user.image_url %>" width="120px"</img>
+<div class="user-name"><%= find_user.name %></div>
+<div class="user-uid"><%= "uid: #{find_user.uid}" %></div>
 <p>
 <%= sanitize(simple_format(find_user.bio)) %>
 </p>

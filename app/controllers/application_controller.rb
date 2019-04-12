@@ -6,19 +6,16 @@ class ApplicationController < ActionController::Base
     :logged_in?
   )
   def login(user)
-    session[:user_id] = user.id
+    session[:user_id] = user.uid
   end
 
   def current_user
     return @current_user if defined? @current_user
-    @current_user = session[:user_id] && User.find_by_id_name(session[:user_id])
-    puts "-----"
-    p @current_user
+    @current_user = session[:user_id] && User.find_by_uid(session[:user_id])
   end
 
   def logout
     session.delete(:user_id)
-    #redirect_to root_url
   end
 
   def logged_in?
