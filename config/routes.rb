@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/login', to: 'session#new'
   resources :users
   resources :vocabulary_cards, path: :cards
+  resources :vocabulary_books, path: :books
 end

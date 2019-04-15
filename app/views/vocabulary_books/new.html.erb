@@ -1,0 +1,9 @@
+<%= form_with url: vocabulary_books_path, method: :post, local: :true do |f| %>
+  <% VocabularyCard.order(:en).each do |card| %>
+    <div>
+      <%= f.check_box :card_ids, { multiple: true }, card.id, nil %>
+      <%= f.label :card_ids, "#{card.en}/#{card.ja}" %>
+    </div>
+  <% end %>
+  <%= f.submit "Submit" %>
+<% end %>

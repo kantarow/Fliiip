@@ -1,4 +1,4 @@
 <h3><%= find_card.en %></h3>
 <h3><%= find_card.ja %></h3>
 
-<span><%= link_to ?@ + find_card.user.id_name, user_path(find_card.user) %></span>
+<span><%= link_to find_card.user.name, user_path(find_card.user) %></span>

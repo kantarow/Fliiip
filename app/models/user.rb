@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :vocabulary_cards
+  has_many :vocabulary_books
   self.primary_key = :uid
   validates :uid,  presence: true,
                    uniqueness: true

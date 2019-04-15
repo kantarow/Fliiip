@@ -1,4 +1,5 @@
 <% if logged_in? %>
+  <%= link_to 'Create new item', new_vocabulary_card_path %>
 <% else %>
   <h2>Welcome to Fliiip!</h2>
   <%= link_to 'Login', login_url %>
