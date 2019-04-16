@@ -2,6 +2,9 @@
   <li class="left">
     <%= link_to "Home", root_path %>
   </li>
+  <li class="left">
+    <%= link_to "Books", vocabulary_books_path %>
+  </li>
   <% if logged_in? %>
     <li class="left">
       <%= link_to "Mypage", current_user %>

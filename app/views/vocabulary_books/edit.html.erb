@@ -1,2 +1,2 @@
-<h1>VocabularyBooks#edit</h1>
-<p>Find me in app/views/vocabulary_books/edit.html.erb</p>
+<h3>Edit vocabulary book</h3>
+<%= render partial: 'form', locals: { url: vocabulary_book_path(id: @book.id), method: :patch } %>

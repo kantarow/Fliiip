@@ -1,13 +1,3 @@
-<%= form_for @card do |f| %>
-  <div class="field">
-    <%= f.label :en, "English word" %>
-    <%= f.text_field :en %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ja, "Japanese translation" %>
-    <%= f.text_field :ja %>
-  </div>
-
-  <%= f.submit "Submit", class: "btn btn-submit" %>
-<% end %>
+<h3>New vocabulary card</h3>
+<%= render partial: 'layouts/errors', locals: { model: @card } %>
+<%= render partial: 'form' %>

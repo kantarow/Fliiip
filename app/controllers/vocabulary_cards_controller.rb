@@ -5,14 +5,20 @@ class VocabularyCardsController < ApplicationController
   end
 
   def create
-    card = current_user.vocabulary_cards.new(card_params)
-    if card.save
+    @card = current_user.vocabulary_cards.new(card_params)
+    if @card.save
       flash[:success] = "Card created"
-      redirect_to card
+      redirect_to @card
+    else
+      render 'new'
     end
   end
 
   def edit
+    @card = find_card
+  end
+
+  def upadte
   end
 
   def show
@@ -25,14 +31,16 @@ class VocabularyCardsController < ApplicationController
   def destroy
   end
 
+
   private
+
+    def card_params
+      params.require(:vocabulary_card).permit(:ja, :en)
+    end
 
     def find_card
       return @card if defined? @card
       @card = VocabularyCard.find_by_id(params[:id])
     end
 
-    def card_params
-      params.require(:vocabulary_card).permit(:ja, :en)
-    end
 end
