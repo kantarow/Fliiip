@@ -1,0 +1,30 @@
+<%= render partial: 'layouts/errors', locals: { model: @book } %>
+<%= render partial: 'layouts/errors', locals: { model: @card } %>
+<% @checked_card_ids ||= [] %>
+<%= form_with url: url, method: method, local: :true do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, value: @name %>
+  </div>
+  <% VocabularyCard.order(:en).each do |card| %>
+    <div>
+      <%= f.check_box :card_ids, { multiple: true, checked: @checked_card_ids.include?(card.id) }, card.id, nil %>
+      <%= f.label :card_ids, "#{card.en}/#{card.ja}" %>
+    </div>
+  <% end %>
+  <%= f.submit @book_commit_message, class: "btn btn-submit" %>
+  <div class="inner-create-card-form">
+    <h3>Add vocabulary card</h3>
+    <%= form_for @card, remote: true do |f| %>
+      <div class="field">
+        <%= f.label :en %>
+        <%= f.text_field :en %>
+      </div>
+      <div class="field">
+        <%= f.label :ja %>
+        <%= f.text_field :ja %>
+      </div>
+      <%= f.submit @card_commit_message, class: "btn btn-submit" %>
+    <% end %>
+  </div>
+<% end %>

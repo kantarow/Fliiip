@@ -1,0 +1,8 @@
+<%= link_to current_user, class: "non-decoration-link" do %>
+  <img src="<%= user.image_url %>" width="120px"</img>
+  <div class="user-name"><%= user.name %></div>
+  <div class="user-uid"><%= "uid: #{user.uid}" %></div>
+<% end %>
+<div class="user-bio">
+  <%= sanitize(simple_format(user.bio)) %>
+</div>

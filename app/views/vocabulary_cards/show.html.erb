@@ -1,0 +1,9 @@
+<%= link_to "<< back to index", vocabulary_cards_path, class: "unobtrusive-link" %>
+<h3><%= find_card.en %></h3>
+<h3><%= find_card.ja %></h3>
+
+<div>
+<span><%= link_to 'by ' + find_card.user.name, user_path(find_card.user), class: "unobtrusive-link" %></span>
+</div>
+<%= link_to "Edit", edit_vocabulary_card_path(find_card), class: "btn btn-normal" %>
+<%= link_to "Delete", find_card, data: { confirm: "Do you really want to delete this?" }, method: :delete, class: "btn btn-submit" %>

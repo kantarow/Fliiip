@@ -34,12 +34,33 @@ $sp:  480px;
   }
 }
 
-@mixin btn ($bg-color, $font-color: white) {
+@mixin btn {
+  padding: 10px;
+  margin:  3px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  display: inline-block;
+  -webkit-appearance: none;
+  transition: 0.5s;
+}
+
+@mixin btn-color ($bg-color, $font-color: white) {
+  text-decoration: none;
   background-color: $bg-color;
+  text-align: center;
   color: $font-color;
   &:hover {
     background-color: $bg-color + 30;
   }
+}
+
+@mixin full-width-btn {
+  @include btn;
+  padding: 10px 0;
+  width: 100%;
 }
 
 @mixin flash ($bg-color) {
@@ -108,24 +129,24 @@ div.field {
 }
 
 .btn {
-  padding: 10px;
-  margin:  3px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 1em;
-  font-weight: bold;
-  border: none;
-  display: inline-block;
-  -webkit-appearance: none;
-  transition: 0.5s;
+  @include btn;
+}
+
+.full-width-btn {
+  @include full-width-btn;
+}
+
+.responsive-btn {
+  @include pc { @include btn; }
+  @include sp { @include full-width-btn; }
 }
 
 .btn-normal {
-  @include btn ($lightgrayshmagenta);
+  @include btn-color ($lightgrayshmagenta);
 }
 
 .btn-submit {
-  @include btn ($richmaroon);
+  @include btn-color ($richmaroon);
 }
 
 .user-name {
@@ -171,11 +192,11 @@ div.field {
   li {
     a {
       font-weight: bold;
-      font-size:   16px;
+      font-size:   15px;
       display: block;
       color: $font-color;
       text-align: center;
-      padding: 14px 14px;
+      padding: 13px 13px;
       text-decoration: none;
       border-right: solid 1px $nav-border;
       border-left:  solid 1px $nav-border;
@@ -185,5 +206,45 @@ div.field {
         transition: 0.5s;
       }
     }
+  }
+}
+
+.inner-create-card-form {
+  border: solid 2px silver;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px 0;
+}
+
+.unobtrusive-link {
+  text-decoration: none;
+  font-size: 15px;
+  color: dimgray;
+}
+
+.title { text-align: center; }
+
+.non-decoration-link { text-decoration: none; }
+
+.user-bio {
+  color: $font-color;
+  padding: 0 5px;
+  border: dotted 1px gray;
+  border-radius: 5px;
+}
+
+.card-headline {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  transition: 0.5s;
+  border-bottom: solid 1px dimgray;
+  width: 100%;
+
+  @include pc { width: 60%; }
+
+  &:hover {
+    background-color: whitesmoke - 30;
   }
 }

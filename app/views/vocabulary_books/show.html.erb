@@ -1,0 +1,11 @@
+<h3><%= find_book.name %></h3>
+<%= link_to "Edit", edit_vocabulary_book_path(find_book) %>
+<ul>
+  <% find_book.vocabulary_cards.each do |card| %>
+    <li>
+      <%= card.en + ?/ + card.ja %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Delete", find_book, data: { confirm: "Do you really want to delete this?" }, method: :delete %>

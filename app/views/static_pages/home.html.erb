@@ -1,5 +1,10 @@
 <% if logged_in? %>
+  <%= render partial: 'users/information', locals: { user: current_user } %>
+  <p>You can create vocabulary book and start learning</p>
+  <%= link_to 'Create new vocabulary book', new_vocabulary_book_path, class: "responsive-btn btn-normal" %>
+  <p>You can create vocabulary card and add to vocabulary books</p>
+  <%= link_to 'Create new vocabulary card', new_vocabulary_card_path, class: "responsive-btn btn-normal" %>
 <% else %>
-  <h2>Welcome to Fliiip!</h2>
-  <%= link_to 'Login', login_url %>
+  <h2 class="title" >Welcome to Fliiip!</h2>
+  <%= link_to 'Login or Signup', login_url, class: "responsive-btn btn-normal" %>
 <% end %>

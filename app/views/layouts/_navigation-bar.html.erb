@@ -2,10 +2,13 @@
   <li class="left">
     <%= link_to "Home", root_path %>
   </li>
+  <li class="left">
+    <%= link_to "Books", vocabulary_books_path %>
+  </li>
+  <li class="left">
+    <%= link_to "Cards", vocabulary_cards_path %>
+  </li>
   <% if logged_in? %>
-    <li class="left">
-      <%= link_to "Mypage", current_user %>
-    </li>
     <li class="right">
       <%= link_to "Logout", logout_path, method: :delete %>
     </li>

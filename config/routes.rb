@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   delete 'logout', to: 'session#destroy'
   get '/login', to: 'session#new'
   resources :users
+  resources :vocabulary_cards, path: :cards
+  resources :vocabulary_books, path: :books
 end

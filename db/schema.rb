@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_11_015516) do
+ActiveRecord::Schema.define(version: 2019_04_13_155134) do
+
+  create_table "book_card_relationships", force: :cascade do |t|
+    t.integer "vocabulary_book_id"
+    t.integer "vocabulary_card_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", id: false, force: :cascade do |t|
     t.string "name"
@@ -19,6 +26,21 @@ ActiveRecord::Schema.define(version: 2019_04_11_015516) do
     t.datetime "updated_at", null: false
     t.string "image_url"
     t.string "uid"
+  end
+
+  create_table "vocabulary_books", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vocabulary_cards", force: :cascade do |t|
+    t.string "ja"
+    t.string "en"
+    t.string "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

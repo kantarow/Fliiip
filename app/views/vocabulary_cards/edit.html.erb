@@ -1,0 +1,4 @@
+<%= link_to "<< back to card", find_card, class: "unobtrusive-link" %>
+<h3>Edit vocabulary card</h3>
+<%= render partial: 'layouts/errors', locals: { model: @card } %>
+<%= render partial: 'form' %>
