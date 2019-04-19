@@ -18,7 +18,15 @@ class VocabularyCardsController < ApplicationController
     @card = find_card
   end
 
-  def upadte
+  def update
+    @card = find_card
+    @card.assign_attributes(card_params)
+    if @card.save
+      flash[:success] = "Card is saved"
+      redirect_to @card
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -29,6 +37,8 @@ class VocabularyCardsController < ApplicationController
   end
 
   def destroy
+    find_card.delete
+    redirect_to vocabulary_cards_path
   end
 
 

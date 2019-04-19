@@ -1,8 +1,2 @@
-<img src="<%= find_user.image_url %>" width="120px"</img>
-<div class="user-name"><%= find_user.name %></div>
-<div class="user-uid"><%= "uid: #{find_user.uid}" %></div>
-<p>
-<%= sanitize(simple_format(find_user.bio)) %>
-</p>
-
-<%= link_to 'Edit', edit_user_path, class: "btn btn-normal" %>
+<%= render partial: 'information', locals: { user: find_user } %>
+<%= link_to 'Edit', edit_user_path(find_user), class: "btn btn-normal" %>

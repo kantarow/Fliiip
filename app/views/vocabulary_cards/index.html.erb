@@ -1,8 +1,6 @@
+<%= link_to "Create new vocabulary card", new_vocabulary_card_path, class: "responsive-btn btn-normal" %>
 <% cards.each do |card| %>
-  <%= link_to card do %>
-    <div class="word-headline">
-      <%= "#{card.en} #{card.ja}" %>
-    </div>
+  <%= link_to card, class: "card-headline" do %>
+    <%= "#{card.en} / #{card.ja}" %>
   <% end %>
-  <hr>
 <% end %>
